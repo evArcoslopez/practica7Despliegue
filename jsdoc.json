@@ -1,0 +1,11 @@
+{
+    "source": {
+      "include": ["js"],
+      "exclude": ["node_modules"]
+    },
+    "opts": {
+      "destination": "./docs",
+       "template": "node_modules/docdash"
+    }
+  }
+  
