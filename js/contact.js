@@ -1,61 +1,19 @@
-/**
- * @file contact.js
- * @description Este script maneja el envío del formulario de contacto en la página.
- * Cuando el formulario se envía, valida que los campos no estén vacíos y muestra un mensaje de confirmación.
- */
-
-// Espera a que el DOM esté completamente cargado antes de ejecutar el código.
-document.addEventListener('DOMContentLoaded', enviarFormulario());
-
-    /**
-    * Función que envía los formularios.
-    * @function
-    */
-    function enviarFormulario() {
-        
-    /**
-     * @constant {HTMLFormElement} contactForm - Formulario de contacto.
-     * @example <form id="contactForm">...</form>
-     */
+document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
 
-    /**
-     * Agrega un evento de escucha para el envío del formulario.
-     * @event submit
-     * @listens contactForm
-     */
     contactForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // Previene la recarga de la página al enviar el formulario.
+        e.preventDefault(); // Previene la recarga de la página
 
-        /**
-         * @let {string} name - Valor del campo de nombre.
-         * @example "Juan Pérez"
-         */
+        // Obtiene los valores del formulario
         const name = document.getElementById('name').value;
-
-        /**
-         * @let {string} message - Valor del campo de mensaje.
-         * @example "Hola, me gustaría obtener más información."
-         */
         const message = document.getElementById('message').value;
 
-        /**
-         * Verifica si el nombre y el mensaje no están vacíos.
-         * @function
-         */
+        // Verifica si el nombre y el mensaje no están vacíos
         if (name.trim() !== '' && message.trim() !== '') {
-            // Muestra un mensaje de agradecimiento si los campos están completos.
             alert(`¡Gracias por tu mensaje, ${name}!`);
-
-            /**
-             * Resetea el formulario después del envío.
-             * @method reset
-             * @memberof HTMLFormElement
-             */
-            contactForm.reset();
+            contactForm.reset(); // Resetea el formulario después del envío
         } else {
-            // Muestra una alerta si algún campo está vacío.
             alert('Por favor, completa todos los campos.');
         }
     });
-};
+});
